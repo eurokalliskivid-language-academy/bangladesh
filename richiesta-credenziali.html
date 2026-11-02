@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Iscrizione e credenziali · ভর্তি ও লগইন তথ্য · Scuola Guida Patente A e B (Ed. 2026/11)</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#ffffff;--card:#ffffff;--sf:#f5f7f9;--tx:#20272e;--mut:#5b6670;--bd:#cdd6de;--bd2:#e5eaee;--pri:#12457a;--pri2:#0d3560;--pri-soft:#eef3f9;--pri-bd:#c3d4e6;--ok:#12457a;--okbg:#eef3f9;--no:#8a3b32;--nobg:#f8efee;--nobd:#e0cdca;--warn:#6b5720;--warnbg:#fbf7ec;--warnbd:#ddd0ac;color-scheme:light}
+*{box-sizing:border-box}
+body{margin:0;background:#ffffff;color:var(--tx);font-family:"Noto Sans Bengali",system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.62;font-size:15.5px;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:Georgia,"Times New Roman",Times,"Noto Sans Bengali",serif;font-weight:600;letter-spacing:.01em}
+header{border-bottom:1px solid var(--bd);background:#fff;padding:10px 16px}
+header .in{max-width:880px;margin:0 auto;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+header .nm{font-family:Georgia,"Times New Roman",serif;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--mut);margin-right:auto}
+header a{color:var(--mut);text-decoration:none;border:1px solid var(--bd);padding:5px 11px;font-size:.75rem;letter-spacing:.05em;text-transform:uppercase}
+header a:hover{border-color:var(--pri);color:var(--pri)}
+main{max-width:880px;margin:0 auto;padding:20px 16px 44px}
+h1{font-size:1.46rem;margin:8px 0 6px}
+h2{font-size:1.06rem;margin:0 0 8px}
+h3{font-size:.95rem;margin:18px 0 6px}
+.sub{color:var(--mut);font-size:.85rem;line-height:1.62}
+.hd{border-bottom:2px solid var(--tx);padding-bottom:12px;margin-bottom:20px}
+.hd .meta{display:flex;flex-wrap:wrap;gap:2px 20px;margin-top:9px;font-size:.71rem;color:var(--mut)}
+.hd .meta b{color:var(--tx);font-weight:600}
+.edn{font-family:Georgia,"Times New Roman",serif;font-size:.71rem;color:var(--mut);border:1px solid var(--bd);padding:3px 9px;white-space:nowrap}
+.card{background:#fff;border:1px solid var(--bd);border-radius:4px;padding:16px 18px;margin-bottom:14px}
+.card>h2:first-child{margin-top:0}
+.mod .num{color:var(--pri);margin-right:7px;font-variant-numeric:tabular-nums}
+.steps{display:flex;gap:0;flex-wrap:wrap;margin:10px 0 16px;border:1px solid var(--bd)}
+.steps span{flex:1;min-width:150px;text-align:center;font-size:.77rem;font-weight:600;padding:8px 6px;color:var(--mut);background:#fff;border-right:1px solid var(--bd2);letter-spacing:.03em}
+.steps span:last-child{border-right:0}
+.steps span.on{color:#fff;background:var(--pri)}
+.steps span.done{color:var(--pri);background:var(--pri-soft)}
+label{display:block;font-size:.79rem;font-weight:600;margin:10px 0 4px}
+label .bn{font-weight:400;color:var(--mut)}
+input,select,textarea{width:100%;font:inherit;color:var(--tx);background:var(--sf);border:1px solid var(--bd);border-radius:3px;padding:9px 11px}
+textarea{min-height:76px;resize:vertical}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--pri);outline-offset:1px;background:#fff}
+input.bad,select.bad{border-color:var(--no);background:var(--nobg)}
+input.good{border-color:var(--pri)}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:560px){.row{grid-template-columns:1fr}}
+button{cursor:pointer;font:inherit}
+.btn{width:100%;padding:11px;border:1px solid var(--bd);background:#fff;color:var(--tx);font-weight:600;margin-top:12px;border-radius:3px}
+.btn.pri{background:var(--pri);border-color:var(--pri);color:#fff}
+.btn.pri:hover{background:var(--pri2)}
+.hint{font-size:.76rem;color:var(--mut);margin-top:4px;line-height:1.6}
+.err{color:var(--no);font-size:.79rem;margin-top:3px;min-height:1em;font-weight:600}
+.hidden{display:none}
+.free-notice{border:1px solid var(--pri);border-left:4px solid var(--pri);border-radius:2px;padding:14px 16px;margin:0 0 16px;background:var(--pri-soft)}
+.free-notice .lbl{display:inline-block;font-family:Georgia,"Times New Roman",serif;font-size:.7rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#fff;background:var(--pri);padding:2px 9px;margin-bottom:9px}
+.free-notice p{margin:0 0 7px;font-size:1rem;line-height:1.72}
+.free-notice p:last-child{margin-bottom:0}
+.free-notice strong{color:var(--pri);font-weight:700}
+.free-notice .it{font-size:.82rem;color:var(--mut);margin-top:9px;padding-top:9px;border-top:1px solid var(--pri-bd);line-height:1.55}
+.note{border:1px solid var(--warnbd);background:var(--warnbg);color:var(--warn);padding:11px 13px;font-size:.82rem;margin:12px 0;border-radius:2px;line-height:1.6}
+.note b{color:inherit}
+.note.info{border-color:var(--bd);background:var(--sf);color:var(--mut)}
+.sum{width:100%;border-collapse:collapse;font-size:.87rem}
+.sum td{padding:6px 0;border-bottom:1px solid var(--bd2);vertical-align:top}
+.sum td:first-child{color:var(--mut);width:42%}
+.ok-box{border:1px solid var(--pri-bd);background:var(--pri-soft);color:var(--pri);padding:12px;font-weight:600;font-size:.86rem;margin-top:10px;border-radius:2px}
+.res-box{border:1px solid var(--pri);border-left:4px solid var(--pri);background:var(--pri-soft);padding:14px 16px;margin-top:14px;border-radius:2px}
+.res-lbl{font-family:Georgia,"Times New Roman",serif;font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;color:var(--pri);margin-bottom:9px}
+.ucode{display:flex;align-items:center;gap:8px;flex-wrap:wrap;background:#fff;border:1px solid var(--bd);padding:8px 10px}
+.ucode code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.95rem;font-weight:700;letter-spacing:.4px;color:var(--pri);word-break:break-all}
+.ucode .mini{margin-left:auto}
+.mini{background:#fff;border:1px solid var(--bd);padding:5px 10px;font-size:.74rem;font-weight:600;border-radius:2px}
+.mini:hover{border-color:var(--pri);color:var(--pri)}
+footer{max-width:880px;margin:0 auto;padding:12px 16px 34px;color:var(--mut);font-size:.71rem;border-top:1px solid var(--bd2);line-height:1.7}
+footer b{color:var(--tx)}
+@media print{header .in a,.steps,.btn,.mini{display:none!important}body{background:#fff}.card{break-inside:avoid}}
+</style>
+</head>
+<body>
+<header><div class="in">
+  <span class="nm">Scuola Guida Teamily · Istituto di formazione per conducenti</span>
+  <a href="scuola-guida-patente-ab-it-bn.html">← Accesso al corso · <span lang="bn">কোর্সে ফিরুন</span></a>
+</div></header>
+<main>
+
+  <div class="hd">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap">
+      <div>
+        <h1>Iscrizione e credenziali di accesso</h1>
+        <p class="sub" style="margin:0">Modulo di richiesta · <span lang="bn">ভর্তি ও লগইন তথ্যের আবেদনপত্র</span> · Patente A e B</p>
+      </div>
+      <span class="edn">Ed. 2026/11 · rev. 5</span>
+    </div>
+    <div class="meta"><span><b>Modulo</b> ISC-01</span><span><b>Recapito</b> eurokalliskivid@gmail.com</span><span><b>Costo del modulo</b> gratuito</span><span><b>Esito</b> immediato a schermo</span></div>
+  </div>
+
+  <div class="free-notice">
+    <span class="lbl">বিনামূল্যে · Gratis</span>
+    <p>লগইন তথ্য সম্পূর্ণ <strong>বিনামূল্যে</strong> — কোনও পেমেন্ট নেই, কোনও খরচ নেই, কোনও সাবস্ক্রিপশন নেই।</p>
+    <p>শুধু নিচের ফর্মটি পূরণ করুন — ব্যবহারকারীনাম ও পাসওয়ার্ড <strong>সঙ্গে সঙ্গে</strong> স্ক্রিনে দেখা যাবে, আপনাকে আর অপেক্ষা করতে হবে না।</p>
+    <p>৭০০০+ অনূদিত প্রশ্নের পুরো কোর্সে প্রবেশের তথ্য আপনার জন্য <strong>ফ্রি</strong>।</p>
+    <div class="it"><b>In italiano:</b> le credenziali di accesso sono <b>gratuite</b> — nessun pagamento, nessun costo. Compilando il modulo la password personale viene <b>generata e mostrata subito</b>: puoi entrare immediatamente nel corso.</div>
+  </div>
+
+  <!-- 1. CREDENZIALI IMMEDIATE -->
+  <div class="card">
+    <h2 class="mod"><span class="num">1.</span>Richiedi le tue credenziali · <span lang="bn">আপনার লগইন তথ্য নিন</span></h2>
+    <p class="sub">Inserisci i tuoi dati: username e password personale vengono creati all'istante. La password resta valida in ogni momento, perché è derivata dallo username con la chiave dell'istituto: il titolare può rigenerarla identica quando serve.<br>
+    <span lang="bn">নিচের তথ্য দিন — ব্যবহারকারীনাম ও পাসওয়ার্ড সঙ্গে সঙ্গে তৈরি হবে এবং সবসময় বৈধ থাকবে।</span></p>
+    <div class="row">
+      <div>
+        <label>Nome · <span class="bn" lang="bn">নাম</span> *</label>
+        <input id="c_nome" autocomplete="given-name" placeholder="Mario">
+        <div class="err" id="e_cnome"></div>
+      </div>
+      <div>
+        <label>Cognome · <span class="bn" lang="bn">পদবি</span> *</label>
+        <input id="c_cognome" autocomplete="family-name" placeholder="Rossi">
+        <div class="err" id="e_ccognome"></div>
+      </div>
+    </div>
+    <div class="row">
+      <div>
+        <label>Email · <span class="bn" lang="bn">ইমেইল</span> *</label>
+        <input id="c_email" type="email" autocomplete="email" placeholder="nome@esempio.it">
+        <div class="err" id="e_cemail"></div>
+      </div>
+      <div>
+        <label>Username desiderato <span class="bn">(vuoto = nome.cognome)</span> · <span class="bn" lang="bn">পছন্দের ব্যবহারকারীনাম</span></label>
+        <input id="c_user" autocomplete="off" spellcheck="false" placeholder="mario.rossi">
+        <div class="err" id="e_cuser"></div>
+      </div>
+    </div>
+    <button class="btn pri" id="bcred">🔑 Genera le credenziali · <span lang="bn">লগইন তথ্য তৈরি করুন</span></button>
+    <div id="credout"></div>
+  </div>
+
+  <!-- 2. DOMANDA DI ISCRIZIONE -->
+  <div class="card">
+    <h2 class="mod"><span class="num">2.</span>Domanda di iscrizione · <span lang="bn">ভর্তির আবেদন</span></h2>
+    <p class="sub">Dati richiesti per la registrazione dell'iscritto e la comunicazione con la segreteria.<br>
+    <span lang="bn">সচিবালয়ের সঙ্গে যোগাযোগের জন্য প্রয়োজনীয় তথ্য।</span></p>
+    <div class="steps" id="steps">
+      <span class="on" data-s="1">2.1 Dati · তথ্য</span>
+      <span data-s="2">2.2 Invio · পাঠান</span>
+    </div>
+
+    <section id="s1">
+      <div class="row">
+        <div>
+          <label>Nome · <span class="bn" lang="bn">নাম</span> *</label>
+          <input id="f_nome" autocomplete="given-name" placeholder="Mario">
+          <div class="err" id="e_nome"></div>
+        </div>
+        <div>
+          <label>Cognome · <span class="bn" lang="bn">পদবি</span> *</label>
+          <input id="f_cognome" autocomplete="family-name" placeholder="Rossi">
+          <div class="err" id="e_cognome"></div>
+        </div>
+      </div>
+      <div class="row">
+        <div>
+          <label>Email · <span class="bn" lang="bn">ইমেইল</span> *</label>
+          <input id="f_email" type="email" autocomplete="email" placeholder="nome@esempio.it">
+          <div class="err" id="e_email"></div>
+        </div>
+        <div>
+          <label>Telefono · <span class="bn" lang="bn">ফোন</span> <span class="bn">(facoltativo)</span></label>
+          <input id="f_tel" type="tel" autocomplete="tel" placeholder="+39 ...">
+          <div class="err" id="e_tel"></div>
+        </div>
+      </div>
+      <div class="row">
+        <div>
+          <label>Patente richiesta · <span class="bn" lang="bn">প্রয়োজনীয় লাইসেন্স</span> *</label>
+          <select id="f_pat">
+            <option value="B">Patente B · কার</option>
+            <option value="A">Patente A · মোটরসাইকেল</option>
+            <option value="AB">Patente A e B · উভয়</option>
+          </select>
+        </div>
+        <div>
+          <label>Lingua dello studio · <span class="bn" lang="bn">পড়ার ভাষা</span></label>
+          <select id="f_ling">
+            <option value="it-bn">Italiano + বাংলা</option>
+            <option value="it">Solo italiano · শুধু ইতালীয়</option>
+          </select>
+        </div>
+      </div>
+      <label>Note · <span class="bn" lang="bn">নোট</span> <span class="bn">(facoltativo)</span></label>
+      <textarea id="f_note" placeholder="Es. ho già frequentato il corso, mi serve l'accesso per esercitarmi."></textarea>
+      <button class="btn pri" id="b1">Continua · <span lang="bn">চালিয়ে যান</span> →</button>
+    </section>
+
+    <section class="hidden" id="s2">
+      <h3>2.2 Riepilogo e invio · <span lang="bn">সারসংক্ষেপ ও পাঠান</span></h3>
+      <div class="ok-box">✓ Istanza gratuita · <span lang="bn">বিনামূল্যে আবেদন</span> — nessun pagamento richiesto</div>
+      <table class="sum" style="margin-top:12px" id="riep"></table>
+      <p class="sub" style="margin-top:12px">Premendo il pulsante si apre il programma di posta con la richiesta già compilata, indirizzata a <b>eurokalliskivid@gmail.com</b>. · <span lang="bn">বাটনে চাপলে আপনার ইমেইল অ্যাপ খুলবে, আবেদন আগেই পূরণ করা থাকবে।</span></p>
+      <button class="btn pri" id="bsend">📧 Invia la richiesta · <span lang="bn">আবেদন পাঠান</span></button>
+      <button class="btn" id="bcopy">Copia il testo · <span lang="bn">টেক্সট কপি করুন</span></button>
+      <div class="note" id="afterbox" style="display:none"></div>
+    </section>
+  </div>
+
+  <div class="note info">
+    <b>Come procedere · কীভাবে এগোবেন</b><br>
+    <b>1.</b> Compila il modulo 1 e ottieni subito username e password.<br>
+    <b>2.</b> Apri il file del corso e inserisci le credenziali nella pagina di accesso.<br>
+    <b>3.</b> Compila il modulo 2 per registrare l'iscrizione alla segreteria.<br>
+    <span lang="bn">১. প্রথম ফর্মটি পূরণ করে লগইন তথ্য নিন। ২. কোর্সের ফাইল খুলে সেই তথ্য দিয়ে প্রবেশ করুন। ৩. সচিবালয়ের জন্য দ্বিতীয় ফর্মটি পাঠান।</span>
+  </div>
+</main>
+<footer>
+  <b>Scuola Guida Teamily</b> · Istituto di formazione per conducenti · Patente A e B · Italiano / বাংলা<br>
+  Modulo ISC-01 · Ed. 2026/11 · rev. 5 · Recapito della segreteria: eurokalliskivid@gmail.com<br>
+  <span lang="bn">ফর্ম ISC-01 · ইতালীয় ও বাংলা · সচিবালয়: eurokalliskivid@gmail.com</span>
+</footer>
+
+<script>
+/* ============================================================
+   CONFIGURAZIONE — deve restare identica al file del corso,
+   altrimenti le password generate qui non valgono là.
+   ============================================================ */
+const CONFIG = {
+  EMAIL_TO: "eurokalliskivid@gmail.com",
+  UNLOCK_SECRET: 'PATENTE-SG-2026-7f3a91c4b8e2d05a',
+  COURSE_FILE: "scuola-guida-patente-ab-it-bn.html"
+};
+
+/* ---------- SHA-256 (puro JS: crypto.subtle non è disponibile su file://) ---------- */
+function sha256(ascii){function rightRotate(v,a){return (v>>>a)|(v<<(32-a))}
+ var mathPow=Math.pow,maxWord=mathPow(2,32),result='',words=[],asciiBitLength=ascii.length*8;
+ var hash=sha256.h=sha256.h||[],k=sha256.k=sha256.k||[],primeCounter=k.length,isComposite={};
+ for(var candidate=2;primeCounter<64;candidate++){if(!isComposite[candidate]){
+  for(var i=0;i<313;i+=candidate){isComposite[i]=candidate}
+  hash[primeCounter]=(mathPow(candidate,.5)*maxWord)|0;k[primeCounter++]=(mathPow(candidate,1/3)*maxWord)|0}}
+ ascii+='\x80';while(ascii.length%64-56)ascii+='\x00';
+ for(i=0;i<ascii.length;i++){var j=ascii.charCodeAt(i);if(j>>8)return;words[i>>2]|=j<<((3-i)%4)*8}
+ words[words.length]=(asciiBitLength/maxWord)|0;words[words.length]=asciiBitLength;
+ for(j=0;j<words.length;){var w=words.slice(j,j+=16),oldHash=hash;hash=hash.slice(0,8);
+  for(i=0;i<64;i++){var w15=w[i-15],w2=w[i-2];var a=hash[0],e=hash[4];
+   var temp1=hash[7]+(rightRotate(e,6)^rightRotate(e,11)^rightRotate(e,25))+((e&hash[5])^((~e)&hash[6]))+k[i]
+   +(w[i]=(i<16)?w[i]:(w[i-16]+(rightRotate(w15,7)^rightRotate(w15,18)^(w15>>>3))+w[i-7]+(rightRotate(w2,17)^rightRotate(w2,19)^(w2>>>10)))|0);
+   var temp2=(rightRotate(a,2)^rightRotate(a,13)^rightRotate(a,22))+((a&hash[1])^(a&hash[2])^(hash[1]&hash[2]));
+   hash=[(temp1+temp2)|0].concat(hash);hash[4]=(hash[4]+temp1)|0}
+  hash=hash.map((v,x)=>((v+oldHash[x])|0))}
+ for(i=0;i<8;i++){for(j=3;j+1;j--){var b=(hash[i]>>(j*8))&255;result+=((b<16)?0:'')+b.toString(16)}}
+ return result}
+
+const utf8 = s => unescape(encodeURIComponent(s));
+const normUser = u => String(u||'').trim().toLowerCase().replace(/\s+/g,'.');
+const ALPHA = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+function studentPass(u){
+  const n = normUser(u);
+  if(!n) return '';
+  const hx = sha256(utf8('PASS|'+CONFIG.UNLOCK_SECRET+'|'+n));
+  let out='';
+  for(let i=0;i<8;i++) out += ALPHA[parseInt(hx.substr(i*2,2),16)%32];
+  return out.slice(0,4)+'-'+out.slice(4,8);
+}
+function slugName(n){
+  return String(n||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'')
+    .replace(/[^a-z0-9]+/g,'.').replace(/^\.+|\.+$/g,'');
+}
+const validUser = u => /^[a-z0-9][a-z0-9._-]{2,30}$/.test(String(u||'').toLowerCase());
+
+/* ---------- archivio locale condiviso con il corso ---------- */
+function stuList(){try{return JSON.parse(localStorage.getItem('pbstu')||'[]')}catch(e){return[]}}
+function stuSave(l){try{localStorage.setItem('pbstu',JSON.stringify(l.slice(-500)))}catch(e){}}
+function addLog(u,a){try{const l=JSON.parse(localStorage.getItem('pblog')||'[]');l.unshift({d:new Date().toLocaleString('it-IT'),u:u,a:a});localStorage.setItem('pblog',JSON.stringify(l.slice(0,200)))}catch(e){}}
+function saveReq(o){try{const r=JSON.parse(localStorage.getItem('pbreq')||'[]');r.unshift(o);localStorage.setItem('pbreq',JSON.stringify(r.slice(0,200)))}catch(e){}}
+function uniqUser(base){
+  const l = stuList(), b = base || 'studente';
+  let u = b, k = 1;
+  while(l.some(x => normUser(x.u) === normUser(u))){ k++; u = b + k }
+  return u;
+}
+
+/* ---------- stato ---------- */
+const S = { step: 1 };
+const $ = s => document.querySelector(s);
+const show = (id,on) => { const el = document.getElementById(id); if(el) el.classList.toggle("hidden", !on); };
+function setStep(n){
+  S.step = n;
+  document.querySelectorAll("#steps span").forEach(sp => {
+    const k = +sp.dataset.s;
+    sp.classList.toggle("on", k===n);
+    sp.classList.toggle("done", k<n);
+  });
+  show("s1", n===1); show("s2", n===2);
+  window.scrollTo({top:0, behavior:"smooth"});
+}
+function err(id,msg){ const e = $("#e_"+id); if(e) e.textContent = msg || ""; }
+function mark(el,ok){ el.classList.toggle("bad", ok===false); el.classList.toggle("good", ok===true); }
+const emailOk = v => /^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$/.test(v.trim());
+const telOk = v => v.trim()==="" || /^[+]?[\d\s().-]{6,20}$/.test(v.trim());
+function escapeHtml(s){ return String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c])); }
+function copyTxt(t,btn){
+  const done = () => { const o = btn.textContent; btn.textContent = "✓ Copiato"; setTimeout(()=>btn.textContent=o,1400) };
+  const v = String(t==null?"":t);
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(v).then(done).catch(done);
+  } else {
+    const ta = document.createElement("textarea"); ta.value = v; document.body.appendChild(ta);
+    ta.select(); try{ document.execCommand("copy") }catch(e){} ta.remove(); done();
+  }
+}
+
+/* ---------- 1. credenziali immediate ---------- */
+$("#bcred").onclick = () => {
+  const n = $("#c_nome").value.trim(), c = $("#c_cognome").value.trim();
+  const em = $("#c_email").value.trim(), du = $("#c_user").value.trim();
+  let bad = false;
+  if(n.length < 2){ err("cnome","Inserisci il nome · নাম লিখুন"); mark($("#c_nome"), false); bad = true }
+  else { err("cnome",""); mark($("#c_nome"), true) }
+  if(c.length < 2){ err("ccognome","Inserisci il cognome · পদবি লিখুন"); mark($("#c_cognome"), false); bad = true }
+  else { err("ccognome",""); mark($("#c_cognome"), true) }
+  if(!emailOk(em)){ err("cemail","Email non valida · সঠিক ইমেইল দিন"); mark($("#c_email"), false); bad = true }
+  else { err("cemail",""); mark($("#c_email"), true) }
+  if(du && !validUser(du)){ err("cuser","Username non valido: lettere, numeri, punto, trattino · ব্যবহারকারীনাম সঠিক নয়"); mark($("#c_user"), false); bad = true }
+  else { err("cuser","") }
+  if(bad) return;
+
+  const full = (n + " " + c).trim();
+  let u = du ? du.toLowerCase().replace(/\s+/g,".") : slugName(full);
+  const l = stuList(), clash = l.find(x => normUser(x.u) === normUser(u));
+  if(clash && normUser(clash.n) !== normUser(full)) u = uniqUser(u);
+  const pw = studentPass(u);
+
+  if(!l.some(x => normUser(x.u) === normUser(u))){
+    l.push({ n: full, u: u, e: em, d: new Date().toLocaleString("it-IT"), src: "autonomo" });
+    stuSave(l);
+  }
+  saveReq({ d: new Date().toLocaleString("it-IT"), n: full, u: u, e: em });
+  addLog(u, "credenziali richieste dallo studente");
+
+  const out = $("#credout");
+  out.innerHTML = '<div class="res-box">' +
+    '<div class="res-lbl">Credenziali generate · <span lang="bn">তৈরি করা লগইন তথ্য</span></div>' +
+    '<label>Username · <span class="bn" lang="bn">ব্যবহারকারীনাম</span></label>' +
+    '<div class="ucode"><code>' + escapeHtml(u) + '</code><button class="mini" data-v="' + escapeHtml(u) + '">Copia · কপি</button></div>' +
+    '<label style="margin-top:10px">Password personale · <span class="bn" lang="bn">ব্যক্তিগত পাসওয়ার্ড</span></label>' +
+    '<div class="ucode"><code>' + escapeHtml(pw) + '</code><button class="mini" data-v="' + escapeHtml(pw) + '">Copia · কপি</button></div>' +
+    '<p class="hint">Annota questi due dati: restano validi in ogni momento e su qualsiasi dispositivo, anche riaprendo il file del corso. La password è legata allo username: se la perdi, il titolare può rigenerarla identica.<br>' +
+    '<span lang="bn">এই দুটি তথ্য সংরক্ষণ করুন — সবসময় ও সব ডিভাইসে বৈধ থাকবে। পাসওয়ার্ডটি ব্যবহারকারীনামের সঙ্গে যুক্ত।</span></p>' +
+    '<button class="btn pri" id="benter">Apri il corso · <span lang="bn">কোর্স খুলুন</span></button>' +
+    '<button class="btn" id="bcopycred">Copia le credenziali · <span lang="bn">তথ্য কপি করুন</span></button>' +
+    '</div>';
+  out.querySelectorAll("[data-v]").forEach(b => b.onclick = () => copyTxt(b.dataset.v, b));
+  $("#benter").onclick = () => { location.href = CONFIG.COURSE_FILE };
+  $("#bcopycred").onclick = () => copyTxt(
+    "Credenziali corso Patente AB — utente " + u + " — password " + pw +
+    ". Apri il file scuola-guida-patente-ab-it-bn.html e inseriscile nella pagina di accesso.", $("#bcopycred"));
+
+  out.scrollIntoView({ behavior:"smooth", block:"nearest" });
+};
+
+/* ---------- 2. domanda di iscrizione ---------- */
+$("#b1").onclick = () => {
+  let ok = true;
+  const nome = $("#f_nome").value.trim(), cog = $("#f_cognome").value.trim();
+  const em = $("#f_email").value.trim(), tel = $("#f_tel").value.trim();
+  if(nome.length < 2){ err("nome","Inserisci il nome · নাম লিখুন"); mark($("#f_nome"), false); ok = false; }
+  else { err("nome",""); mark($("#f_nome"), true); }
+  if(cog.length < 2){ err("cognome","Inserisci il cognome · পদবি লিখুন"); mark($("#f_cognome"), false); ok = false; }
+  else { err("cognome",""); mark($("#f_cognome"), true); }
+  if(!emailOk(em)){ err("email","Email non valida · সঠিক ইমেইল দিন"); mark($("#f_email"), false); ok = false; }
+  else { err("email",""); mark($("#f_email"), true); }
+  if(!telOk(tel)){ err("tel","Telefono non valido · ফোন নম্বর ভুল"); mark($("#f_tel"), false); ok = false; }
+  else { err("tel",""); mark($("#f_tel"), tel ? true : null); }
+  if(!ok) return;
+  setStep(2); riepilogo();
+};
+
+function riepilogo(){
+  const rows = [
+    ["Nome e cognome", $("#f_nome").value.trim() + " " + $("#f_cognome").value.trim()],
+    ["Email", $("#f_email").value.trim()],
+    ["Telefono", $("#f_tel").value.trim() || "—"],
+    ["Patente", {B:"Patente B", A:"Patente A", AB:"Patente A e B"}[$("#f_pat").value]],
+    ["Lingua", $("#f_ling").value === "it" ? "Solo italiano" : "Italiano + বাংলা"],
+    ["Costo", "Gratuito · বিনামূল্যে"]
+  ];
+  $("#riep").innerHTML = rows.map(r => "<tr><td>" + r[0] + "</td><td>" + escapeHtml(r[1]) + "</td></tr>").join("") +
+    "<tr><td>Note</td><td>" + escapeHtml($("#f_note").value.trim() || "—") + "</td></tr>";
+}
+
+function testoEmail(){
+  const L = [
+    "DOMANDA DI ISCRIZIONE — Scuola Guida Patente A e B",
+    "ভর্তির আবেদন (বিনামূল্যে)",
+    "",
+    "Nome: " + $("#f_nome").value.trim(),
+    "Cognome: " + $("#f_cognome").value.trim(),
+    "Email: " + $("#f_email").value.trim(),
+    "Telefono: " + ($("#f_tel").value.trim() || "-"),
+    "Patente richiesta: " + {B:"B", A:"A", AB:"A e B"}[$("#f_pat").value],
+    "Lingua: " + ($("#f_ling").value === "it" ? "Italiano" : "Italiano + Bengali"),
+    "Note: " + ($("#f_note").value.trim() || "-"),
+    "",
+    "Costo: GRATUITO — nessun pagamento richiesto (বিনামূল্যে, কোনও পেমেন্ট নেই)",
+    "",
+    "Data richiesta: " + new Date().toLocaleString("it-IT"),
+    "",
+    "Inviato dal modulo ISC-01 — richiesta-credenziali"
+  ];
+  return L.filter(x => x !== "").join("\r\n");
+}
+
+$("#bsend").onclick = () => {
+  const to = encodeURIComponent(CONFIG.EMAIL_TO);
+  const subj = encodeURIComponent("Iscrizione corso Patente AB — " + $("#f_cognome").value.trim() + " " + $("#f_nome").value.trim());
+  const body = encodeURIComponent(testoEmail());
+  window.location.href = "mailto:" + to + "?subject=" + subj + "&body=" + body;
+  const b = $("#afterbox");
+  b.style.display = "";
+  b.innerHTML = "📨 Se non si apre il programma di posta, usa <b>«Copia il testo»</b> e invialo manualmente a <b>" +
+    CONFIG.EMAIL_TO + "</b>.<br><span lang=\"bn\">ইমেইল অ্যাপ না খুললে «টেক্সট কপি করুন» চেপে ম্যানুয়ালি পাঠান।</span>";
+  window.scrollTo({top: document.body.scrollHeight, behavior:"smooth"});
+};
+$("#bcopy").onclick = async () => {
+  const txt = "A: " + CONFIG.EMAIL_TO + "\nOggetto: Iscrizione corso Patente AB\n\n" + testoEmail();
+  try{
+    await navigator.clipboard.writeText(txt);
+    $("#bcopy").textContent = "✓ Testo copiato · কপি হয়েছে";
+  }catch(e){ $("#bcopy").textContent = "Copia non riuscita"; }
+  setTimeout(()=>{ $("#bcopy").textContent = "Copia il testo · টেক্সট কপি করুন"; }, 2500);
+};
+
+/* ---------- init ---------- */
+setStep(1);
+</script>
+</body>
+</html>
